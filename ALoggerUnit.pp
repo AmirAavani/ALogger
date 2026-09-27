@@ -134,8 +134,7 @@ begin
     _Writeln(Format('%d-%s-%s:%d] %s', [ThreadID, DateTimeToStr(Now),
       Filename, LineNumber, Message]))
   else
-    _Writeln(Format('%d-%s] %s', [ThreadID, DateTimeToStr(Now), Message]));
-
+    _Writeln(Format('%u-%s] %s', [PtrUInt(ThreadID), DateTimeToStr(Now), Message]));
 end;
 
 procedure TALogger.DebugLn(const Msg: ansistring; Verbosity: integer);
