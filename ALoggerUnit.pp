@@ -129,15 +129,12 @@ procedure _DebugLn(const Filename: ansistring; LineNumber: integer;
 var
   Message: ansistring;
 begin
-  WriteLn('D0');
   Message := Format(Fmt, Args);
-  WriteLn('D1');
   if (Filename <> 'UNKNOWN') and (LineNumber <> -1) then
     _Writeln(Format('%u-%s-%s:%d] %s', [PtrUInt(ThreadID), DateTimeToStr(Now),
       Filename, LineNumber, Message]))
   else
     _Writeln(Format('%u-%s] %s', [PtrUInt(ThreadID), DateTimeToStr(Now), Message]));
-  WriteLn('D2');
 
 end;
 
